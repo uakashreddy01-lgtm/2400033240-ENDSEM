@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Event Modal</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+    }
+
+    .event-card {
+        border: 1px solid #aaa;
+        padding: 15px;
+        width: 220px;
+        margin: 10px;
+        cursor: pointer;
+        border-radius: 8px;
+        background: #f2f2f2;
+    }
+
+    /* Modal Background */
+    .modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.6);
+        display: none; /* hidden initially */
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* Modal Box */
+    .modal {
+        background: white;
+        padding: 25px;
+        border-radius: 10px;
+        width: 300px;
+        text-align: center;
+    }
+
+    .close-btn {
+        margin-top: 15px;
+        padding: 8px 15px;
+        background: #007BFF;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+    }
+</style>
+
+</head>
+<body>
+
+<h2>Upcoming Events</h2>
+
+<!-- Event Cards -->
+<div class="event-card" onclick="openModal('Tech Summit 2025', 'A conference on AI and Robotics.')">
+    <h3>Tech Summit 2025</h3>
+    <p>Click for details</p>
+</div>
+
+<div class="event-card" onclick="openModal('Developer Meetup', 'Networking session for programmers.')">
+    <h3>Developer Meetup</h3>
+    <p>Click for details</p>
+</div>
+
+<!-- Modal -->
+<div id="modalOverlay" class="modal-overlay">
+    <div class="modal">
+        <h2 id="eventTitle"></h2>
+        <p id="eventDesc"></p>
+        <button class="close-btn" onclick="closeModal()">Close</button>
+    </div>
+</div>
+
+<script>
+    // Open Modal with event details
+    function openModal(title, desc) {
+        document.getElementById('eventTitle').innerText = title;
+        document.getElementById('eventDesc').innerText = desc;
+        document.getElementById('modalOverlay').style.display = 'flex';
+    }
+
+    // Close Modal
+    function closeModal() {
+        document.getElementById('modalOverlay').style.display = 'none';
+    }
+</script>
+
+</body>
+</html>
